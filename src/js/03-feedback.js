@@ -32,6 +32,18 @@ loadFromStorage();
 
 form.addEventListener('submit', event => {
   event.preventDefault();
+
+  if (email.value.trim() === '' || message.value.trim() === '') {
+    alert('All fields have to be full in!');
+    return;
+  }
+  const state = {
+    email: email.value.trim(),
+    message: message.value.trim(),
+  };
+
+  console.log(state);
+
   localStorage.removeItem(storage);
   form.reset();
 });
